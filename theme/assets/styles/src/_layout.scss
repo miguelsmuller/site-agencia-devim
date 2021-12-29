@@ -1,0 +1,210 @@
+/* # BODY
+================================================== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-x: hidden !important;
+  background-color: $gray9;
+  color: $blue-dark;
+  line-height: 22px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+/* # GENERIC CONTAINER
+================================================== */
+.wraper{
+  overflow-x: hidden;
+}
+
+.container {
+  @include container();
+  position: relative;
+}
+
+.main-container {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  position: relative;
+
+  &.main-container-centered{
+    @include container();
+  }
+}
+
+.flex-container{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/* # GENERIC COLUMNS
+================================================== */
+@for $i from 1 through 12 {
+  .col#{$i} {
+    @include span($i);
+  }
+  @include breakpoint(mobile) {
+    .col#{$i} {
+      @include span(12);
+    }
+  }
+}
+
+
+/* # GENERIC SECTIONS
+================================================== */
+.section-content{
+  @include clearfix();
+  padding: 10px 0px 55px;
+
+  .section-content-inner{
+    @include clearfix();
+  }
+
+  .section-content-row{
+    @include clearfix();
+    padding: 15px 0px;
+  }
+}
+
+.section-content + .section-content{
+  padding-top: 40px;
+}
+
+@include breakpoint(mobile) {
+  .section-content{
+    padding: 30px 0px;
+  }
+}
+
+
+/* # GENERIC STRUCTURE
+================================================== */
+.page-header{
+  //@include background-image( image-url("bg-overlay-connected.png", false, false) );
+  @include background-image( image-url("bg-overlay-triangle.png", false, false) );
+  background-color: $blue-dark;
+  padding: 20px 0;
+  border: none;
+
+  .page-header-inner{
+    @include span(12);
+
+    h1{
+      text-transform: uppercase;
+      color: $white;
+      line-height: 36px;
+    }
+  }
+}
+
+.page-content-left{
+  @include span(9);
+}
+.page-content-right{
+  @include span(3);
+}
+
+@include breakpoint(mobile) {
+ .page-content-left,
+ .page-content-right{
+    @include span(12);
+  }
+}
+
+
+/* # GENERIC FOOTER
+================================================== */
+#footer-contact,
+#footer-copyright{
+  color: $blue-dark;
+  font-size: 14px;
+  line-height: 20px;
+
+  a{
+    color: inherit;
+  }
+}
+
+
+/* # CONTACT FOOTER
+================================================== */
+#footer-contact{
+  padding: 30px 0px 50px;
+  //background: image-url("bg-overlay-footer.png", false, false) no-repeat right bottom;
+
+  .container{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .contact-social{
+    @include span(5 of 12);
+  }
+  .contact-menu{
+    @include span(3 of 12);
+  }
+  .contact-list{
+    @include span(4 of 12);
+  }
+}
+
+@include breakpoint(mobile) {
+  #footer-contact{
+    padding: 30px 0px 50px;
+
+    .contact-social,
+    .contact-menu,
+    .contact-list{
+      @include span(12 of 12);
+    }
+
+    .contact-menu{
+      padding: 40px 0px;
+    }
+  }
+}
+
+
+/* # COPYRIGHT FOOTER
+================================================== */
+#footer-copyright{
+  border-top: 5px solid $gray7;
+  background-color: $gray9;
+  line-height: 22px;
+  font-weight: 600;
+  padding: 12px 0;
+
+  .copyright-menu{
+    @include span(6 of 12);
+    text-align: left;
+  }
+  .copyright-credit{
+    @include span(6 of 12);
+    text-align: right;
+  }
+}
+
+@include breakpoint(mobile) {
+  #footer-copyright{
+
+    .copyright-menu,
+    .copyright-credit{
+      text-align: center;
+      @include span(12 of 12);
+    }
+  }
+}

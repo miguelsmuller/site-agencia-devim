@@ -1,0 +1,167 @@
+/* # NAVIGATION BAR
+================================================== */
+#navbar-main{
+  border-bottom: 4px solid $gray7;
+  background-color: rgba(240, 240, 240, 1);
+  position: relative;
+  display: block;
+  z-index: 10;
+
+  &.navbar-fixed{
+    background-color: rgba(240, 240, 240, .95);
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    left: 0;
+    top: 0px;
+  }
+
+  .navbar-header{
+    @include clearfix();
+    float: left;
+  }
+
+  .navbar-brand{
+    padding: 11px 15px 8px;
+    margin-bottom: 1px;
+    float: left;
+    svg{
+      width: 220px;
+    }
+
+    @include breakpoint(mobile) {
+    	svg{
+				height: 50px;
+				width: auto;
+
+    		#texto{
+	        display: none;
+	      }
+    	}
+    }
+  }
+
+  .navbar-toggle{
+    @include border-radius(4px);
+    background-color: $blue-dark;
+    border: none;
+    padding: 15px 20px;
+    margin: 12px 12px 12px 0;
+    position: relative;
+    float: right;
+    display: none;
+
+    .icon-bar{
+      background-color: $white;
+      height: 4px;
+      display: block;
+      width: 22px;
+      border-radius: 1px;
+      &+.icon-bar{
+        margin-top: 4px;
+      }
+    }
+  }
+
+  @include breakpoint(menu-navigation) {
+    .navbar-header{
+      float: none;
+    }
+    .navbar-toggle{
+      display: block;
+    }
+  }
+}
+
+/* # NAVIGATION MENU
+================================================== */
+#navbar-menu {
+  @include clearfix();
+  padding-bottom: 0;
+  display: block;
+}
+@include breakpoint(menu-navigation) {
+  #navbar-menu {
+    display: none;
+  }
+  .collapse{
+    display: none;
+    &.in{
+      display: block !important;
+    }
+  }
+  .collapsing {
+    display: block !important;
+    height: 0px;
+    overflow: hidden;
+    position: relative;
+    @include transition(height .35s ease);
+  }
+}
+
+.navbar-nav{
+  float: right;
+  padding: 22px 0px 20px;
+
+  >li{
+    display: inline-block;
+
+    >a {
+      @include transition (all .2s 0 ease-in);
+      display: block;
+      line-height: 22px;
+      font-weight: bold;
+      font-size: 16px;
+      text-transform: uppercase;
+      padding: 4px 6px;
+      text-decoration: none;
+      margin: 0px 6px;
+      color: $blue-dark;
+
+      &:hover{
+        border-bottom: 3px solid $blue-dark;
+      }
+    }
+
+    &.active{
+      a{
+        border-bottom: 3px solid $blue-dark;
+      }
+    }
+
+    &.menu-item-highlight{
+      >a{
+        @include border-radius(4px);
+        background-color: $blue-dark;
+        color: $white;
+        border-bottom: none;
+
+        &:hover{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(menu-navigation) {
+  .navbar-nav{
+    border-top: 4px solid $gray7;
+    padding: 10px 0px;
+    float: none;
+
+    >li{
+      display: block;
+
+      a{
+        padding: 10px 6px;
+      }
+
+      &.active{
+        a{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

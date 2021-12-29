@@ -1,0 +1,15 @@
+{
+	"name": "devim-theme",
+	"version": "1.0.0",
+	"private": true,
+	"dependencies": {
+		"bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git#3.1.0",
+		"animate.css": "~3.2.4",
+		"normalize.css": "~3.0.2",
+		"waypoints": "~3.1.1",
+		"owl-carousel": "~1.3.2",
+		"highlightjs": "~8.5.0",
+		"particleground": "git://github.com/jnicol/particleground.git",
+		"lightgallery": "~1.2.0"
+	}
+}
